@@ -21,3 +21,19 @@ A **SYN flood attack** works by not responding to the server with the expected A
 The server will wait for the acknowledgement for some time, as simple network congestion could also be the cause of the missing ACK, but in an attack increasingly large numbers of half-open connections will bind resources on the server until no new connections can be made, resulting in a denial of service to legitimate traffic. Some systems may also malfunction badly or even crash if other operating system functions are starved of resources in this way.
 
 ![SYN Flood](http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tcp_synflood.png/220px-Tcp_synflood.png)
+
+
+http://www.computrad.co.uk/blog/p.php?e=41
+
+
+
+### 1. 
+
+#### Using Scapy for performing TCP/SYN Flood.
+
+	send(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/TCP(sport=RandShort(), dport=80), loop=1) 
+
+Scapy generates TCP SYN packets at a constant rate to the victim with address 172.16.16.16 on port 80, sourced from random spoofed addresses within the allowed management network (10.0.0.0/8). Appending the loop=1 parameter to scapy's send() command instructs it to regenerate and retransmit the packet at a constant rate indefinitely. 
+
+On the victim router, we can see that the TCP connection queue is immediately exhausted: 
+
