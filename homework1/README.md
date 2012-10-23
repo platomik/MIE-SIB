@@ -37,3 +37,21 @@ Scapy generates TCP SYN packets at a constant rate to the victim with address 17
 
 On the victim router, we can see that the TCP connection queue is immediately exhausted: 
 
+	02:15:49.007776 IP 10.183.157.9.35319 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.008966 IP 10.143.122.81.61439 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.010057 IP 10.23.145.69.45972 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.011082 IP 10.36.20.15.23697 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.012211 IP 10.237.52.92.34983 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.013442 IP 10.37.190.76.20831 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.014706 IP 10.36.141.23.4999 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.015997 IP 10.200.164.146.33124 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.017994 IP 10.131.175.162.38615 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.019118 IP 10.46.64.11.48947 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.020234 IP 10.133.81.101.52032 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.021436 IP 10.253.244.76.18717 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.022464 IP 10.66.75.205.27219 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.023491 IP 10.202.188.247.11763 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.024614 IP 10.82.193.102.54673 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.025861 IP 10.150.235.34.29320 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.027553 IP 10.231.145.11.58377 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+	02:15:49.029261 IP 10.145.105.136.60844 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
