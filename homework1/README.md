@@ -144,7 +144,7 @@ We should capture `udp` packets at `port 53`:
 	a=sniff(filter="udp and port 53")
 	a.summary();
 
-Result is:
+and result is:
 
 	Ether / IP / UDP / DNS Qry "fit.cvut.cz." 
 	
