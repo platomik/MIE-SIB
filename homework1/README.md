@@ -104,11 +104,11 @@ Now, target and victims ip addresses are set.
 
 Send packet.
 
-	send(a);
+	send(a)
 
 ###### Using Scapy for monitoring attacks.
 
-We should capture 'arp' packets:
+We should capture `arp` packets:
 
 	a =sniff(filter="arp")
 	a.summary()
@@ -117,6 +117,21 @@ Result on target side looks like:
 
 	Ether / ARP who has 172.16.16.16 says 10.0.0.1
 	
+
 ### 3, DNS query (DNS Multiplication Attack)
 
+###### Theoretical overview
 
+A **DNS query** is the process of a networking device making an inquiry to get an IP address for a DNS name. 
+
+The client computer will send a DNS query to one of their DNS servers. The DNS server looks in it's DNS database to tell whether it can answer the query authoritatively. If the DNS server can answer authoritatively, the DNS server answers the query and the DNS query process is complete... *further stages are not interested for us within the bounds of this task*.
+
+![ARP poisoning](http://www.ingate.com/files/422/fwmanual-en/png-img/fw-acdns1-en.png)
+
+###### Using Scapy for performing attacks.
+
+	sr1(IP(src=RandIP('10.0.0.0/8'), dst='8.8.8.8')/UDP(sport=RandShort(),dport=53)/DNS(rd=1,qd=DNSQR(qname="fit.cvut.cz", qtype="AAAA")))
+	
+DNS query to the DNS server at 172.16.16.16 from fake network addresses. The request is about presence IPv6 records type AAAA for the domain fit.cvut.cz.
+
+`rd=1` is telling that recursion is desired, and `sr1` is the send/receive function that only returns the first answered packet.
