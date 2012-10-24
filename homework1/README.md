@@ -135,3 +135,15 @@ The client computer will send a DNS query to one of their DNS servers. The DNS s
 DNS query to the DNS server at 172.16.16.16 from fake network addresses. The request is about presence IPv6 records type AAAA for the domain fit.cvut.cz.
 
 `rd=1` is telling that recursion is desired, and `sr1` is the send/receive function that only returns the first answered packet.
+
+###### Using Scapy for monitoring attacks.
+
+We should capture `udp` packets at `port 53`:
+
+	a=sniff(filter="udp and port 53")
+	a.summary();
+
+Result is:
+
+	Ether / IP / UDP / DNS Qry "fit.cvut.cz." 
+	
