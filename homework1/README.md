@@ -130,9 +130,9 @@ The client computer will send a DNS query to one of their DNS servers. The DNS s
 
 ###### Using Scapy for performing attacks.
 
-	sr1(IP(src=RandIP('10.0.0.0/8'), dst='8.8.8.8')/UDP(sport=RandShort(),dport=53)/DNS(rd=1,qd=DNSQR(qname="fit.cvut.cz", qtype="AAAA")))
+	sr1(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/UDP(sport=RandShort(),dport=53)/DNS(rd=1,qd=DNSQR(qname="fit.cvut.cz", qtype="AAAA")))
 	
-DNS query to the DNS server at 172.16.16.16 from fake network addresses. The request is about presence IPv6 records type AAAA for the domain fit.cvut.cz.
+DNS query to the DNS server at 172.16.16.16 from random ip addresses 10.0.0.0/8. The request is about presence IPv6 records type AAAA for the domain fit.cvut.cz.
 
 `rd=1` is telling that recursion is desired, and `sr1` is the send/receive function that only returns the first answered packet.
 
