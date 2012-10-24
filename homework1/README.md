@@ -27,7 +27,7 @@ The server will wait for the acknowledgement for some time, as simple network co
 
 	send(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/TCP(sport=RandShort(), dport=80), loop=1) 
 
-Scapy generates TCP SYN packets at a constant rate to the victim with address 172.16.16.16 on port 80, sourced from random spoofed addresses within the allowed management network (10.0.0.0/8). Appending the loop=1 parameter to scapy's send() command instructs it to regenerate and retransmit the packet at a constant rate indefinitely. 
+Scapy generates `TCP SYN` packets at a constant rate to the victim with `address 172.16.16.16` on `port 80`, sourced from random spoofed addresses within the allowed management network (`10.0.0.0/8`). Appending the `loop=1` parameter to scapy's send() command instructs it to regenerate and retransmit the packet at a constant rate indefinitely. 
 
 On the victim router, we can see that the TCP connection queue is immediately exhausted: 
 
@@ -52,7 +52,7 @@ On the victim router, we can see that the TCP connection queue is immediately ex
 	
 ###### Using Scapy for monitoring attacks.
 
-We can easily capture **tcp** packets with **"S" flag**:
+We can easily capture `tcp` packets with `S flag`:
 
 	a = sniff(filter="tcp[tcpflags] & (tcp-syn) != 0")
 	a.nsummary()
@@ -87,11 +87,11 @@ An **ARP Spoofing attack** is the egression of unsolicited ARP messages. These A
 
 ###### Using Scapy for performing attacks.
 
-Exists high-level function that is already coded 'arpcachepoison'. That performs poison target's cache with (your MAC,victim's IP) couple.
+Exists high-level function that is already coded `arpcachepoison`. That performs poison target's cache with (your MAC,victim's IP) couple.
 
 	arpcachepoison('172.16.16.16', '10.0.0.1')
 
-Will cause 172.16.16.16 to send the current host all packets originally intended for 10.0.0.1.
+Will cause `172.16.16.16` to send the current host all packets originally intended for `10.0.0.1`.
 
 Also it can be done in different way by using standart functions:
 
@@ -132,7 +132,7 @@ The client computer will send a DNS query to one of their DNS servers. The DNS s
 
 	sr1(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/UDP(sport=RandShort(),dport=53)/DNS(rd=1,qd=DNSQR(qname="fit.cvut.cz", qtype="AAAA")))
 	
-DNS query to the DNS server at 172.16.16.16 from random ip addresses 10.0.0.0/8. The request is about presence IPv6 records type AAAA for the domain fit.cvut.cz.
+DNS query to the DNS server at `172.16.16.16` from random ip addresses `10.0.0.0/8`. The request is about presence IPv6 records type `AAAA` for the domain `fit.cvut.cz`.
 
 `rd=1` is telling that recursion is desired, and `sr1` is the send/receive function that only returns the first answered packet.
 
