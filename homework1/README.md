@@ -54,7 +54,7 @@ On the victim router, we can see that the TCP connection queue is immediately ex
 
 We can easily capture **tcp** packets with **"S" flag**:
 
-	a= sniff(filter="tcp[tcpflags] & (tcp-syn) != 0")
+	a = sniff(filter="tcp[tcpflags] & (tcp-syn) != 0")
 	a.nsummary()
 
 Displayed information:
@@ -84,4 +84,39 @@ Displayed information:
 An **ARP Spoofing attack** is the egression of unsolicited ARP messages. These ARP messages contain the IP address of a network resource, such as the default gateway, or a DNS server, and replaces the MAC address for the corresponding network resource with its own MAC address. Network devices, by design, overwrite any existing ARP information in conjunction with the IP address, with the new, counterfeit ARP information. The attacker then takes the role of man in the middle; any traffic destined for the legitimate resource is sent through the attacking system. As this attack occurs on the lower levels of the OSI model, the end-user is oblivious to the attack occurrence.
 
 **ARP Poisoning** is also capable of executing Denial of Service (DoS) attacks. The attacking system, instead of posing as a gateway and performing a man in the middle attack, can instead simply drop the packets, causing the clients to be denied service to the attacked network resource. The spoofing of ARP messages is the tributary principal of ARP Poisoning.
+
+###### Using Scapy for performing attacks.
+
+Exists high-level function that is already coded 'arpcachepoison'. That performs poison target's cache with (your MAC,victim's IP) couple.
+
+	arpcachepoison('172.16.16.16', '10.0.0.1')
+
+Will cause 172.16.16.16 to send the current host all packets originally intended for 10.0.0.1.
+
+Also it can be done in different way by using standart functions:
+
+	a = ARP()
+
+Now, target and victims ip addresses are set.
+
+	a.psrc=("10.0.0.1")
+	a.pdst=("172.16.16.16")
+
+Send packet.
+
+	send(a);
+
+###### Using Scapy for monitoring attacks.
+
+We should capture 'arp' packets:
+
+	a =sniff(filter="arp")
+	a.summary()
+	
+Result on target side looks like:
+
+	Ether / ARP who has 172.16.16.16 says 10.0.0.1
+	
+### 3, DNS query (DNS Multiplication Attack)
+
 
