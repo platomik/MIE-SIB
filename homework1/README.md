@@ -205,3 +205,19 @@ The program has a constant for number of packets to capture. By default this num
     int num_packets = 100;           /* number of packets to capture */
 
 When program captured `num_packets` (default value, 100), it stopped even if none of TCP/SYN packets is found.
+
+### 5. Send the intruding packets with random timing according to a Poisson Process with rate lambda (the parameter)
+
+Simple program on python allows sending TCP/SYN packets from a random src address with a random interval according to a Poisson Process. The program is [here](https://github.com/platomik/MIE-SIB/blob/master/homework1/extra.py "extra").
+
+######Usage from command line:
+
+	>extra.py 0.5
+
+where parameter `0.5` is lambda.
+
+######Comments
+In the program *loop with delay* was used. Delay is defined by python function `random.expovariate`
+
+	**random.expovariate(lambd)**
+	Exponential distribution. lambd is 1.0 divided by the desired mean. It should be nonzero. (The parameter would be called “lambda”, but that is a reserved word in Python.) Returned values range from 0 to positive infinity if lambd is positive, and from negative infinity to 0 if lambd is negative.
