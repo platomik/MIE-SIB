@@ -152,20 +152,56 @@ and result is:
 
 Program is available for downloads from [here](https://github.com/platomik/MIE-SIB/blob/master/homework1/tcpsynsniffer.c "tcpsynsniffer").
 
-Description: 
+######Description: 
 The program captures ip packets and print out information about TCP/SYN packets only. 
 
-Compile with:
+######Compile with:
 
 	gcc tcpsynsniffer.c -lpcap (-o tcpsynsniffer) 
 
-Usage:
+######Usage:
 
 	a.out
 
-Output:
+######Output:
 
 	61/88 TCP:SYN        From: 10.92.23.150:28509         To: 172.16.16.16:80
 
 Printed `61st` packet of `88` currently observed. Packet is `TCP/SYN` type. From source address `10.92.23.150` port `28509` to destination address `172.16.16.16` port `80`.
 
+######SYN flood:
+If we perform a packet generation by Scapy from TCP/SYN flood example in the 1st part of the homework:
+
+	send(IP(src=RandIP('10.0.0.0/8'), dst='172.16.16.16')/TCP(sport=RandShort(), dport=80), loop=1) 
+
+We will get such output of program `tcpsynsniffer` execution:
+
+	1/5 TCP:SYN        From: 10.245.71.56:61343         To: 172.16.16.16:80
+	2/6 TCP:SYN        From: 10.44.145.235:31764         To: 172.16.16.16:80
+	3/7 TCP:SYN        From: 10.60.84.72:6057         To: 172.16.16.16:80
+	4/8 TCP:SYN        From: 10.13.80.184:7713         To: 172.16.16.16:80
+	5/9 TCP:SYN        From: 10.97.136.97:26323         To: 172.16.16.16:80
+	6/12 TCP:SYN        From: 10.109.33.211:1354         To: 172.16.16.16:80
+	7/13 TCP:SYN        From: 10.245.218.53:27024         To: 172.16.16.16:80
+	8/14 TCP:SYN        From: 10.48.149.41:31992         To: 172.16.16.16:80
+	9/15 TCP:SYN        From: 10.86.236.178:23626         To: 172.16.16.16:80
+	10/16 TCP:SYN        From: 10.106.139.241:33214         To: 172.16.16.16:80
+	11/17 TCP:SYN        From: 10.70.82.100:53481         To: 172.16.16.16:80
+	12/18 TCP:SYN        From: 10.243.166.57:11644         To: 172.16.16.16:80
+	13/19 TCP:SYN        From: 10.189.162.243:7244         To: 172.16.16.16:80
+	14/22 TCP:SYN        From: 10.222.107.93:34402         To: 172.16.16.16:80
+	15/23 TCP:SYN        From: 10.181.18.28:38302         To: 172.16.16.16:80
+	16/24 TCP:SYN        From: 10.8.62.158:42174         To: 172.16.16.16:80
+	17/25 TCP:SYN        From: 10.183.106.185:57508         To: 172.16.16.16:80
+	18/26 TCP:SYN        From: 10.140.35.123:48808         To: 172.16.16.16:80
+	19/27 TCP:SYN        From: 10.35.46.139:10663         To: 172.16.16.16:80
+	20/28 TCP:SYN        From: 10.250.181.239:8775         To: 172.16.16.16:80
+
+So here we can see flooding TCP/SYN packets on target server `172.16.16.16` at port `80`.
+
+######Notes:
+The program has a constant for number of packets to capture. By default this number is equal 100. It could be easily changed in the source code:
+
+    int num_packets = 100;           /* number of packets to capture */
+
+When program captured `num_packets` (default value = 100), it stopped even if none of TCP/SYN packets is captured.
