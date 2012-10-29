@@ -150,7 +150,7 @@ and result is:
 	
 ### 4. *C* program for monitoring of TCP/SYN packets.
 
-Program is available for download from [here](https://github.com/platomik/MIE-SIB/blob/master/homework1/tcpsynsniffer.c "tcpsynsniffer").
+Program is available for downloads from [here](https://github.com/platomik/MIE-SIB/blob/master/homework1/tcpsynsniffer.c "tcpsynsniffer").
 
 Description: 
 The program captures ip packets and print out information about TCP/SYN packets only. 
@@ -167,5 +167,5 @@ Output:
 
 	61/88 TCP:SYN        From: 10.92.23.150:28509         To: 172.16.16.16:80
 
-Printed 61st packet of 88 currently observed. Packet is TCP/SYN type. From source address 10.92.23.150 port 28509 to destination address 172.16.16.16 port 80.
+Printed `61st` packet of `88` currently observed. Packet is `TCP/SYN` type. From source address `10.92.23.150` port `28509` to destination address `172.16.16.16` port `80`.
 
