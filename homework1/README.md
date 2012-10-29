@@ -219,5 +219,5 @@ where parameter `0.5` is lambda.
 ######Comments
 In the program *loop with delay* was used. Delay is defined by python function `random.expovariate`
 
-	**random.expovariate(lambd)**
+**random.expovariate(lambd)**
 	Exponential distribution. lambd is 1.0 divided by the desired mean. It should be nonzero. (The parameter would be called “lambda”, but that is a reserved word in Python.) Returned values range from 0 to positive infinity if lambd is positive, and from negative infinity to 0 if lambd is negative.
