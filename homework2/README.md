@@ -22,3 +22,8 @@ Output of `tcpdump` is sending to the pattern scanning language `mawk` (awk anal
 **3.** Results are shown in Figure.
 
 ![Time intervals](https://github.com/platomik/MIE-SIB/raw/master/homework2/timeintervals.jpg)
+
+350 packets were captured and analyzed. **Grey bars** are time interval between current and previos packet. **Red line** is a value from settings of traffic generator. *Blue curve* - average value of time intervals amoung measurement. 
+
+As we can see the blue curve converges to the red line.
+
