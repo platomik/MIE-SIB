@@ -49,3 +49,5 @@ Output of `tcpdump` is sending to the pattern scanning language `mawk` (awk anal
 ![Packet length](https://github.com/platomik/MIE-SIB/raw/master/homework2/packetlength.jpg)
 
 500 packets were captured and analyzed. **Grey bars** are size of packets. **Red line** is a value from settings of traffic generator. *Blue curve* - average packets size values. 
+
+### 3. Develop program for a web traffic generation.
