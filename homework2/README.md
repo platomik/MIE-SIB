@@ -55,3 +55,31 @@ Output of `tcpdump` is sending to the pattern scanning language `mawk` (awk anal
 From the article *Hyoung-Kee Choi, John O. Limb, A Behavioral Model of Web Traffic"* we have the parameters and their expected distributions used to model the Web traffic.
 
 ![Parameters](https://github.com/platomik/MIE-SIB/raw/master/homework2/parameters.jpg)
+
+In order to use it with utilities `tg` and `rg` we have to make small transformation of it. 
+
+For Gamma distribution we should use parameters α and β. It could be easily derived from mean and standard deviation.
+
+Since, 
+	Mean = α/β
+	S.D. = sqrt(α/β)
+
+we get
+	α = (Mean)^2 / (S.D.)^2
+	β = (Mean)  / (S.D.)^2
+
+For Weibull Distribution we should use parameters α and β. 
+
+	Median = β * (ln(2))^(1/α)
+	Mean = β * ( Г(1+1/α)) 
+
+And the final form for parametrs table is :
+
+	Request size has `Lognormal distribution` with parameters μ=360.4 and σ2=11346.5
+	Object size (main) has `Lognormal distribution` with parameters μ=10709.8 and σ2=626606030.4
+	Object size (in-line) has `Lognormal distribution` with parameters μ=7757.74 and σ2=15918364224
+	Parising time has `Gamma distribution` with parameters α=0.5 and β=3.77
+	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=0.04
+	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=0.19
+	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.16 and β=0.19
+	Number of non-cached Web-requests has `Lognormal distribution` with parameters μ=12.6 and σ2=466.56
