@@ -51,3 +51,7 @@ Output of `tcpdump` is sending to the pattern scanning language `mawk` (awk anal
 500 packets were captured and analyzed. **Grey bars** are size of packets. **Red line** is a value from settings of traffic generator. *Blue curve* - average packets size values. 
 
 ### 3. Develop program for a web traffic generation.
+
+From the article *Hyoung-Kee Choi, John O. Limb, A Behavioral Model of Web Traffic"* we have the parameters and their expected distributions used to model the Web traffic.
+
+![Parameters](https://github.com/platomik/MIE-SIB/raw/master/homework2/parameters.jpg)
