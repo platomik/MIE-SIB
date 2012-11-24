@@ -81,5 +81,6 @@ And the final form for parametrs table is :
 	Parising time has `Gamma distribution` with parameters α=0.5 and β=3.77
 	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=0.04
 	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=0.19
-	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.16 and β=0.19
+	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.32 and β=0.18
 	Number of non-cached Web-requests has `Lognormal distribution` with parameters μ=12.6 and σ2=466.56
+
