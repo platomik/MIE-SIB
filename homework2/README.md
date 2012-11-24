@@ -72,15 +72,19 @@ Some clarifications on table with parameters:
 
 *In-line interarrival time* - interarrival time between starts of in-line objects.
 
+*Whole page delay* - the time to download a page.
+
 In order to use it with utilities `tg` and `rg` we have to make small transformation of it. 
 
 For Gamma distribution we should use parameters α and β. It could be easily derived from mean and standard deviation.
 
 Since, 
+
 	Mean = α/β
 	S.D. = sqrt(α/β)
 
 we get
+
 	α = (Mean)^2 / (S.D.)^2
 	β = (Mean)  / (S.D.)^2
 
@@ -97,6 +101,16 @@ And the final form for parametrs table is :
 	Parising time has `Gamma distribution` with parameters α=0.5 and β=3.77
 	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=0.04
 	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=0.19
+	Whole page delay has `Weibull Distribution` with parameters α=0.32 and β=0.18
 	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.32 and β=0.18
 	Number of non-cached Web-requests has `Lognormal distribution` with parameters μ=12.6 and σ2=466.56
 
+#### Simulation
+
+Web traffic generation model consists of two parts - outgoing traffic (requests from clients to servers) and incoming traffic (answer from servers to clients).
+
+###### Requesting URIs
+
+We need to use the following paramers from the table:
+
+**Request size** as length of packets, **Whole page delay** plus **Viewing (OFF) time** as interrequesting time and **Number of Pages** as number of concurrent requests at the moment.
