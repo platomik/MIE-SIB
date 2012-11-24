@@ -59,11 +59,17 @@ From the article *Hyoung-Kee Choi, John O. Limb, A Behavioral Model of Web Traff
 Some clarifications on table with parameters:
 
 *Object size* - the size of objects (main and in-line) stored on the remote server.
+
 *Request size* - the size of HTTP header sent when requesting URI
+
 *Number of in-line objects* - the number of embedded objects in a page in which requests are made
+
 *Viewing (off) time* - use thinking time
+
 *Number of (non)-cached pages* - the number of consecutive pages that are (not) locally cached in the browser
+
 *Parsing time* - the time for a browser to parse the HTML code
+
 *In-line interarrival time* - interarrival time between starts of in-line objects.
 
 In order to use it with utilities `tg` and `rg` we have to make small transformation of it. 
