@@ -15,13 +15,13 @@ ViewingOFFtime () {
 }
 
 RequestSize () {
-    rgp=`./rg -I $nextInit3 -D Lognormal -O '%9.3f' -m 0.3604 -s 11.3465`
+    rgp=`./rg -I $nextInit3 -D Lognormal -O '%9.3f' -m 5.84 -s 0.09`
     randomRequestSize=`echo $rgp | awk -F' :' '{print $1}'`
     nextInit3=`echo $rgp | awk -F' :' '{print $2}'`
 }
 
 NonCachedRequest () {
-    rgp=`./rg -I $nextInit4 -D Lognormal -O '%9.3f' -m 12.6 -s 466.56`
+    rgp=`./rg -I $nextInit4 -D Lognormal -O '%9.3f' -m 1.61 -s 1.84`
     randomNonCachedRequest=`echo $rgp | awk -F' :' '{print $1}'`
     nextInit4=`echo $rgp | awk -F' :' '{print $2}'`
 }
@@ -42,7 +42,7 @@ while (true); do
 	RequestSize
 	NonCachedRequest
 	delay=$(echo $randomViewingOFFtime + $randomWholePageDelay | bc)
-	size=$(echo $randomRequestSize*1000 | bc )
+	size=$(echo $randomRequestSize*1 | bc )
 	req=$randomNonCachedRequest
 
     echo ""
