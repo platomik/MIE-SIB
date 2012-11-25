@@ -116,6 +116,8 @@ We need to use the following paramers from the table:
 
 **Request size** as length of packets, **Whole page delay** plus **Viewing (OFF) time** as interrequesting time and **Number of Pages** as number of concurrent requests at the moment.
 
-Process can be represented schematically:
+**Process can be represented schematically:**
 
 ![Request](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
+
+[Script for generation outgoing web traffic.](https://github.com/platomik/MIE-SIB/blob/master/homework2/out.sh "out.sh").
