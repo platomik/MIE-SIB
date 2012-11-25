@@ -120,7 +120,7 @@ We need to use the following paramers from the table:
 
 ![Request](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
 
-[Script for generation outgoing web traffic.](https://github.com/platomik/MIE-SIB/blob/master/homework2/out.sh "out.sh").
+[Script for outgoing web traffic generation.](https://github.com/platomik/MIE-SIB/blob/master/homework2/out.sh "out.sh").
 
 ###### Answers from Web-Servers
 
@@ -133,10 +133,12 @@ In this algorithm we should use following parameters:
 	Main-object size Lognormal(8.71;1.14)
 	Parising time Gamma(0.5;3.77)
 	Number of in-line objects Gamma(0.24;0.04)
-	Inline object size Lognormal(7.56;2.79)
+	In-line object size Lognormal(7.56;2.79)
 	In-line inter-arrival time Gamma(0.16;0.19)
 	Viewing (OFF) time Weibull(0.32;0.18)
 
 **Again process can be represented schematically:**
 
-![Answer](https://github.com/platomik/MIE-SIB/raw/master/homework2/ans.jpg)
+![Answer](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
+
+[Script for incomming web traffic generation.](https://github.com/platomik/MIE-SIB/blob/master/homework2/in.sh "in.sh").
