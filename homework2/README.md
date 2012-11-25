@@ -101,9 +101,10 @@ And the final form for parametrs table is :
 	Parising time has `Gamma distribution` with parameters α=0.5 and β=3.77
 	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=0.04
 	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=0.19
-	Whole page delay has `Weibull Distribution` with parameters α=0.32 and β=0.18
+	Whole page delay has `Weibull Distribution` with parameters α=0.57 and β=7
 	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.32 and β=0.18
 	Number of non-cached Web-requests has `Lognormal distribution` with parameters μ=12.6 and σ2=466.56
+	Number of cached Web-requests has `Geometric distribution` with paramter p=0.57
 
 #### Simulation
 
@@ -114,3 +115,7 @@ Web traffic generation model consists of two parts - outgoing traffic (requests 
 We need to use the following paramers from the table:
 
 **Request size** as length of packets, **Whole page delay** plus **Viewing (OFF) time** as interrequesting time and **Number of Pages** as number of concurrent requests at the moment.
+
+Process can be represented schematically:
+
+![Request](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
