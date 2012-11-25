@@ -1,4 +1,4 @@
-# MIE-SIB. Homework #1. 
+# MIE-SIB. Homework #2. 
 
 ### 1. Use tcpdump for analyzing sending time of packets. Calculate the time between packets and compare it with the settings of `tg` traffic generator.
 
