@@ -139,6 +139,6 @@ In this algorithm we should use following parameters:
 
 **Again process can be represented schematically:**
 
-![Answer](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
+![Answer](https://github.com/platomik/MIE-SIB/raw/master/homework2/ans.jpg)
 
 [Script for incomming web traffic generation.](https://github.com/platomik/MIE-SIB/blob/master/homework2/in.sh "in.sh").
