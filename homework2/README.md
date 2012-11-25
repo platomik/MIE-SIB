@@ -121,3 +121,9 @@ We need to use the following paramers from the table:
 ![Request](https://github.com/platomik/MIE-SIB/raw/master/homework2/req.jpg)
 
 [Script for generation outgoing web traffic.](https://github.com/platomik/MIE-SIB/blob/master/homework2/out.sh "out.sh").
+
+###### Answers from Web-Servers
+
+Algorithm can be based on state transition diagram from the article:
+
+![State diagram](https://github.com/platomik/MIE-SIB/raw/master/homework2/statedia.jpg)
