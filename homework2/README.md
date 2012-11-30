@@ -98,13 +98,13 @@ And the final form for parametrs table is :
 	Request size has `Lognormal distribution` with parameters μ=5.84 and σ2=0.09
 	Object size (main) has `Lognormal distribution` with parameters μ=8.71 and σ2=1.14
 	Object size (in-line) has `Lognormal distribution` with parameters μ=7.56 and σ2=2.79
-	Parising time has `Gamma distribution` with parameters α=0.5 and β=3.77
-	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=0.04
-	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=0.19
+	Parising time has `Gamma distribution` with parameters α=0.48 and β=0.27
+	Number of in-line objects has `Gamma distribution` with parameters α=0.24 and β=23.42
+	In-line inter-arrival time has `Gamma distribution` with parameters α=0.16 and β=5.38
 	Whole page delay has `Weibull Distribution` with parameters α=0.57 and β=7
-	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.32 and β=0.18
+	Viewing (OFF) time has `Weibull Distribution` with parameters α=0.55 and β=22.92
 	Number of non-cached Web-requests has `Lognormal distribution` with parameters μ=1.61 and σ2=1.84
-	Number of cached Web-requests has `Geometric distribution` with paramter p=0.57
+	Number of cached Web-requests has `Geometric distribution` with paramter p=0.37
 
 #### Simulation
 
@@ -131,11 +131,11 @@ Algorithm can be based on state transition diagram from the article:
 In this algorithm we should use following parameters:
 
 	Main-object size Lognormal(8.71;1.14)
-	Parising time Gamma(0.5;3.77)
-	Number of in-line objects Gamma(0.24;0.04)
+	Parising time Gamma(0.48;0.27)
+	Number of in-line objects Gamma(0.24;23.42)
 	In-line object size Lognormal(7.56;2.79)
-	In-line inter-arrival time Gamma(0.16;0.19)
-	Viewing (OFF) time Weibull(0.32;0.18)
+	In-line inter-arrival time Gamma(0.16;5.38)
+	Viewing (OFF) time Weibull(0.55;22.92)
 
 **Again process can be represented schematically:**
 
