@@ -40,4 +40,7 @@ In our case it would be better sort flows by registered time and draw a histogra
 	
 ![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p2.jpg)
 
-**Question:** 
+**Note:** On the plot we can see two zones with small time intervals. They show intensive traffic in that time.
+
+### 1. Histogram of time between flows.
+
