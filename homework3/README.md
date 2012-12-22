@@ -11,3 +11,33 @@ File [tmp.flw](https://github.com/platomik/MIE-SIB/blob/master/homework3/tmp.flw
 	....
 
 Let's build a histogram for time between adjacent flows in the file.
+
+Import data from file to data matrix representation:
+
+	x <- as.matrix(read.csv(file="/tmp/tmp.flw",head=TRUE,sep=","))
+
+Create new element from 1st column that matrix. That is flows time:
+
+	y=strptime(x[,1], "%Y-%m-%d %H:%M:%OS")
+	
+Now new element is created from differences between adjacent flow time:
+
+	z<-as.table(diff(y))
+	
+Plot barhistogram for the values:
+
+	barplot(z)
+	
+![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p1.jpg)
+
+**Question:** `Why do we have negative values?` 
+
+**Answer:** Collector puts information about the transmission into the file when it is finished but this record will contain start time when transmission is started. It means traffic between two nodes contains many flows will be registered later than traffic between two nodes with less flows. When traffic is intensive the situation is more apparent.
+
+In our case it would be better sort flows by registered time and draw a histogram again:
+
+	z<-as.table(diff(sort(y)))
+	
+![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p2.jpg)
+
+**Question:** 
