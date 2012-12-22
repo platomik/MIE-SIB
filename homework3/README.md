@@ -42,5 +42,52 @@ In our case it would be better sort flows by registered time and draw a histogra
 
 **Note:** On the plot we can see two zones with small time intervals. They show intensive traffic in that time.
 
-### 1. Histogram of time between flows.
+### 2. Pie chart graphing source ports
+
+We should work now with file [sport.flw](https://github.com/platomik/MIE-SIB/blob/master/homework3/sport.flw "sport.flw"). It includes source ports,source IP addresses, number of flows. And looks like:
+	DESTINATION,SPORT,FLOWS
+	    78.46.238.74, 12014,    1
+	   78.46.229.109, 56258,    1
+	     78.47.45.78, 65225,    1
+	   78.46.229.109, 56811,    1
+	     78.46.244.6, 24722,    1
+	   78.46.229.109, 49810,    2
+	    94.25.128.69,    53,    2
+	  125.255.41.123,    80,    7
+
+First of all we should import file into data.frame element
+
+	x<-read.csv(file="/tmp/sport.flw",head=TRUE,sep=",")
+
+6588 elements in array `x` .
+
+Then grouping records by the same port values:
+	
+	y<-aggregate(x['FLOWS'],by=x['SPORT'],sum)
+	
+Number of elements is decreased to 5463. Now change port name to **other** if number of flows is equal to **1**:
+
+	y$SPORT[y$FLOWS==1]<-"other"
+	
+And group array again:
+
+	z<-aggregate(y['FLOWS'],by=y['SPORT'],sum)	
+	
+Number of elements is 816. It is too much for pie diagram. And if we try to draw it we are going to get smth like:
+	
+	pie(z$FLOWS,z$SPORT)
+	
+![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p3.jpg)
+
+To achive more nicer pie diagram we should change the condition `joining ports with 1 flow to group other`. Let's put into `other` all ports with less than 100 flows. And draw chart again:
+
+	y$SPORT[y$FLOWS<100]<-"other"
+	z<-aggregate(y['FLOWS'],by=y['SPORT'],sum)
+	pie(z$FLOWS,z$SPORT)
+
+![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p4.jpg)
+
+The chart allows make conclusion that server has 3 open ports - web server, dns server and ntp server.
+
+### 3. Pie chart graphing destination ports
 
