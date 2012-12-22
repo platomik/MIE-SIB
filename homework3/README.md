@@ -42,6 +42,13 @@ In our case it would be better sort flows by registered time and draw a histogra
 
 **Note:** On the plot we can see two zones with small time intervals. They show intensive traffic in that time.
 
+CDF looks like:
+
+	plot(ecdf(z),verticals=TRUE,pch=46)
+	
+![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p6.jpg)
+
+
 ### 2. Pie chart graphing source ports
 
 We should work now with file [sport.flw](https://github.com/platomik/MIE-SIB/blob/master/homework3/sport.flw "sport.flw"). It includes source ports,source IP addresses, number of flows. And looks like:
