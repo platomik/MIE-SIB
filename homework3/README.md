@@ -100,3 +100,5 @@ The same procedure as above must be repeated to draw a chart for destination por
 	pie(z$FLOWS,z$DPORT)
 
 ![](https://github.com/platomik/MIE-SIB/raw/master/homework3/p5.jpg)
+
+We may notice sendmail port on the chart. Server sends notifications from time to time.
