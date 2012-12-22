@@ -42,7 +42,7 @@ In our case it would be better sort flows by registered time and draw a histogra
 
 **Note:** On the plot we can see two zones with small time intervals. They show intensive traffic in that time.
 
-CDF looks like:
+**CDF looks like:**
 
 	plot(ecdf(z),verticals=TRUE,pch=46)
 	
