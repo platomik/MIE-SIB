@@ -91,7 +91,7 @@ The chart allows make conclusion that server has 3 open ports - web server, dns 
 
 ### 3. Pie chart graphing destination ports
 
-The same procedure as above must be repeated to draw a chart for destination ports:
+The same procedure but with file [dport.flw](https://github.com/platomik/MIE-SIB/blob/master/homework3/dport.flw "dport.flw") must be repeated to draw a chart for destination ports:
 
 	x<-read.csv(file="/tmp/dport.flw",head=TRUE,sep=",")
 	y<-aggregate(x['FLOWS'],by=x['DPORT'],sum)
